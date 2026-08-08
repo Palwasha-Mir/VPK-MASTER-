@@ -3,66 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VPK MASTER enterprise | Profesjonalne Konstrukcje Stalowe</title>
+    <title>VPK MASTER enterprise | Premium Konstrukcje Stalowe</title>
     <style>
         :root {
-            --primary: #ff5722; /* Industrial Orange/Rust */
-            --dark: #111111;
-            --grey: #1a1a1a;
-            --light-grey: #262626;
-            --text: #ffffff;
+            --primary: #00e5ff; /* Cyan Energy Glow */
+            --accent: #2563eb;  /* Electric Blue */
+            --bg-dark: #0b0f19;  /* Deep Space Blue */
+            --bg-card: #1e293b;  /* Sleek Slate */
+            --glass: rgba(30, 41, 59, 0.7);
+            --text-white: #ffffff;
+            --text-dim: #94a3b8;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Segoe UI', Roboto, sans-serif;
             scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--dark);
-            color: var(--text);
+            background-color: var(--bg-dark);
+            color: var(--text-white);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
+        /* Premium Navbar */
         header {
-            background-color: rgba(17, 17, 17, 0.95);
+            background: rgba(11, 15, 25, 0.85);
             padding: 20px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid var(--primary);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0, 229, 255, 0.2);
         }
 
         .logo {
-            font-size: 22px;
-            font-weight: 800;
+            font-size: 26px;
+            font-weight: 900;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         .logo span {
             color: var(--primary);
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
         }
 
+        .nav-links a {
+            color: var(--text-white);
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Dynamic Hero Section */
         .hero {
             position: relative;
-            height: 85vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 10%;
+            padding: 0 8%;
             overflow: hidden;
-            margin-top: 60px;
         }
 
         .hero-video {
@@ -76,83 +94,95 @@
             z-index: -2;
             transform: translate(-50%, -50%);
             object-fit: cover;
-            filter: brightness(0.3);
+            filter: brightness(0.35) contrast(1.1);
         }
 
         .hero h1 {
-            font-size: 48px;
+            font-size: 58px;
+            font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 1px;
             margin-bottom: 20px;
-            font-weight: 800;
-        }
-
-        .hero h1 span {
-            color: var(--primary);
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #ffffff 30%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            font-size: 18px;
-            max-width: 700px;
-            margin-bottom: 35px;
-            color: #cccccc;
+            font-size: 22px;
+            max-width: 800px;
+            color: #cbd5e1;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
         }
 
         .btn {
-            background: var(--primary);
-            color: #fff;
-            padding: 14px 35px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #0b0f19;
+            padding: 16px 42px;
+            font-weight: 800;
             text-decoration: none;
-            font-weight: 700;
-            border-radius: 4px;
+            border-radius: 50px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            box-shadow: 0 0 25px rgba(0, 229, 255, 0.4);
             transition: 0.3s ease;
         }
 
         .btn:hover {
-            background: #fff;
-            color: #000;
+            transform: translateY(-3px);
+            box-shadow: 0 0 35px var(--primary);
         }
 
-        .about {
-            padding: 100px 10%;
-            background-color: var(--grey);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            border: 2px solid var(--primary);
+            box-shadow: none;
         }
 
-        .about-text h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        .about-text h2 span {
+        .btn-outline:hover {
+            background: rgba(0, 229, 255, 0.1);
             color: var(--primary);
         }
 
-        .about-text p {
-            color: #aaaaaa;
-            margin-bottom: 15px;
+        /* Stats Counter Section */
+        .stats {
+            background: linear-gradient(180deg, rgba(11,15,25,0) 0%, var(--bg-card) 50%, var(--bg-dark) 100%);
+            padding: 60px 8%;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .about-img img {
-            width: 100%;
-            border-radius: 4px;
-            border: 1px solid rgba(255, 87, 34, 0.5);
+        .stat-item h2 {
+            font-size: 45px;
+            color: var(--primary);
+            font-weight: 800;
         }
 
-        .services {
-            padding: 100px 10%;
-            background-color: var(--dark);
+        .stat-item p {
+            color: var(--text-dim);
+            font-size: 14px;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        /* Features/Services Section */
+        section {
+            padding: 100px 8%;
         }
 
         .section-title {
             text-align: center;
-            font-size: 32px;
+            font-size: 40px;
+            font-weight: 800;
             margin-bottom: 60px;
             text-transform: uppercase;
         }
@@ -168,37 +198,127 @@
         }
 
         .card {
-            background-color: var(--grey);
-            padding: 40px 30px;
-            border-radius: 4px;
-            border-left: 4px solid var(--primary);
-            transition: 0.3s;
+            background: var(--glass);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.4s ease;
+            backdrop-filter: blur(10px);
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            background-color: var(--light-grey);
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 35px rgba(0, 229, 255, 0.15);
         }
 
         .card h3 {
+            color: var(--primary);
+            font-size: 24px;
             margin-bottom: 15px;
-            font-size: 20px;
-            color: #fff;
         }
 
         .card p {
-            color: #aaaaaa;
+            color: var(--text-dim);
+            font-size: 16px;
         }
 
-        .contact {
-            padding: 100px 10%;
-            text-align: center;
-            background-color: var(--grey);
+        /* Expanded Gallery Grid (6 Images Layout) */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 280px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s ease;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-btn {
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 4px;
+            background: transparent;
+        }
+
+        /* Customer Trust Testimonials Section */
+        .testimonials {
+            background: var(--bg-card);
+            padding: 100px 8%;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background: var(--bg-dark);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .review-card p {
+            font-style: italic;
+            color: #cbd5e1;
+            margin-bottom: 15px;
+        }
+
+        .review-card h4 {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Dynamic Glassmorphic Contact Container */
+        .contact-box {
+            background: var(--glass);
+            border-radius: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px;
+            border: 1px solid rgba(0, 229, 255, 0.2);
+            backdrop-filter: blur(10px);
         }
 
         .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -206,29 +326,34 @@
 
         .contact-form input, .contact-form textarea {
             width: 100%;
-            padding: 15px;
-            background-color: var(--dark);
-            border: 1px solid #333;
+            padding: 18px;
+            background: var(--bg-dark);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
             color: #fff;
-            border-radius: 4px;
+            font-size: 16px;
         }
 
         .contact-form input:focus, .contact-form textarea:focus {
             outline: none;
             border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
         }
 
         footer {
-            background-color: #0a0a0a;
             text-align: center;
-            padding: 25px;
+            padding: 30px;
+            color: var(--text-dim);
             font-size: 14px;
-            color: #555555;
+            background: #060911;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         @media (max-width: 768px) {
-            .about { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 32px; }
+            .hero h1 { font-size: 38px; }
+            .hero-buttons { flex-direction: column; width: 100%; gap: 15px; }
+            .stats { flex-direction: column; gap: 30px; }
+            .contact-box { padding: 30px; }
         }
     </style>
 </head>
@@ -236,57 +361,118 @@
 
     <header>
         <div class="logo">VPK MASTER <span>enterprise</span></div>
+        <div class="nav-links">
+            <a href="#uslugi">Usługi</a>
+            <a href="#realizacje">Realizacje</a>
+            <a href="#opinie">Opinie</a>
+            <a href="#kontakt">Kontakt</a>
+        </div>
     </header>
 
-    <!-- Video Background Section -->
+    <!-- Enhanced Hero with Multiple Premium Buttons -->
     <section class="hero">
         <video class="hero-video" autoplay loop muted playsinline>
             <source src="https://assets.mixkit.co/videos/preview/mixkit-welder-working-with-sparks-43187-large.mp4" type="video/mp4">
         </video>
-        <h1>Niezawodne Konstrukcje <span>Stalowe</span></h1>
-        <p>Najwyższa jakość usług spawalniczych, montażu i obróbki metalu na rynku polskim. Tworzymy z pasją i precyzją.</p>
-        <a href="#contact" class="btn">Darmowa Wycena</a>
-    </section>
-
-    <!-- About Section -->
-    <section class="about">
-        <div class="about-text">
-            <h2>O Naszej <span>Firmie</span></h2>
-            <p>VPK MASTER enterprise to synonim solidności w branży konstrukcji metalowych. Oferujemy kompleksowe rozwiązania dla przemysłu oraz klientów indywidualnych.</p>
-            <p>Dzięki nowoczesnemu zapleczu technicznemu realizujemy nawet najbardziej skomplikowane projekty terminowo i zgodnie z normami.</p>
-        </div>
-        <div class="about-img">
-            <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800" alt="Industrial Metalwork">
+        <h1>Klasa Premium w Stali</h1>
+        <p>Projektowanie konstrukcji, precyzyjne spawalnictwo przemysłowe oraz luksusowe detale metalowe dopasowane do Twoich potrzeb.</p>
+        <div class="hero-buttons">
+            <a href="#kontakt" class="btn">Darmowa Wycena</a>
+            <a href="#realizacje" class="btn btn-outline">Zobacz Projekty</a>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services">
-        <h2 class="section-title">Nasze <span>Usługi</span></h2>
+    <!-- High-Trust Stats Counter Section -->
+    <div class="stats">
+        <div class="stat-item">
+            <h2>100%</h2>
+            <p>Polski Materiał</p>
+        </div>
+        <div class="stat-item">
+            <h2>250+</h2>
+            <p>Ukończonych Hal</p>
+        </div>
+        <div class="stat-item">
+            <h2>15+</h2>
+            <p>Lat Doświadczenia</p>
+        </div>
+    </div>
+
+    <!-- Core Services Grid -->
+    <section id="uslugi">
+        <h2 class="section-title">Zakres <span>Działań</span></h2>
         <div class="grid">
             <div class="card">
-                <h3>Zaawansowane Spawalnictwo</h3>
-                <p>Profesjonalne spawanie metodami MIG, MAG oraz TIG wykonywane przez certyfikowanych specjalistów.</p>
+                <h3>Konstrukcje Inżynieryjne</h3>
+                <p>Ciężkie konstrukcje nośne, hale magazynowe, szkielety stalowe budynków przemysłowych o podwyższonej trwałości.</p>
             </div>
             <div class="card">
-                <h3>Montaż Konstrukcji</h3>
-                <p>Produkcja oraz montaż hal przemysłowych, wiat, schodów oraz innych elementów konstrukcyjnych.</p>
+                <h3>Spawalnictwo Robotyka & TIG</h3>
+                <p>Niezwykle precyzyjne łączenie metali, aluminium oraz stali kwasoodpornej. Czystość i wytrzymałość bez kompromisów.</p>
             </div>
             <div class="card">
-                <h3>Projekty na Wymiar</h3>
-                <p>Dostosowujemy się do indywidualnych potrzeb klienta, gwarantując precyzyjne wykonanie według rysunku technicznego.</p>
+                <h3>Elementy Architektoniczne</h3>
+                <p>Nowoczesne balustrady szklano-stalowe, luksusowe ogrodzenia systemowe oraz loftowe meble na indywidualne zamówienie.</p>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <h2 class="section-title">Skontaktuj się <span>z nami</span></h2>
-        <div class="contact-form">
-            <input type="text" placeholder="Imię i Nazwisko / Nazwa Firmy" required>
-            <input type="email" placeholder="Adres E-mail" required>
-            <textarea rows="5" placeholder="Opisz szczegóły swojego projektu..." required></textarea>
-            <button class="btn" type="submit" style="cursor: pointer; border: none;">Wyślij Zapytanie</button>
+    <!-- Expanded 6-Image Work Gallery with Hover Actions -->
+    <section id="realizacje">
+        <h2 class="section-title">Nasze <span>Realizacje</span></h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=600" alt="Konstrukcja 1">
+                <div class="gallery-overlay"><a href="#kontakt" class="gallery-btn">Zapytaj o podobny</a></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600" alt="Spawanie 2">
+                <div class="gallery-overlay"><a href="#kontakt" class="gallery-btn">Zapytaj o podobny</a></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=600" alt="Detale 3">
+                <div class="gallery-overlay"><a href="#kontakt" class="gallery-btn">Zapytaj o podobny</a></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=600" alt="Hala 4">
+                <div class="gallery-overlay"><a href="#kontakt" class="gallery-btn">Zapytaj o podobny</a></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=600" alt="Budowa 5">
+                <div class="gallery-overlay"><a href="#kontakt" class="gallery-btn">Zapytaj o podobny</a></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1513828565645-2b68b248f8c4?q=80&w=600" alt="Maszyny 6">
+                <div class="gallery-overlay"><a href="#kontakt" class="gallery-btn">Zapytaj o podobny</a></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- High-Conversion Testimonials Area -->
+    <section id="opinie" class="testimonials">
+        <h2 class="section-title">Zaufali <span>Nam</span></h2>
+        <div class="testimonial-grid">
+            <div class="review-card">
+                <p>"Pełen profesjonalizm. Konstrukcja hali dostarczona i zamontowana przed ustalonym terminem. Polecam firmę VPK MASTER!"</p>
+                <h4>- Janusz K., Dyrektor Operacyjny</h4>
+            </div>
+            <div class="review-card">
+                <p>"Jakość spoin TIG na elementach ze stali nierdzewnej to absolutne mistrzostwo. Idealny design loftowy."</p>
+                <h4>- Mariusz W., Architekt</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxurious Glassmorphic Form Section -->
+    <section id="kontakt">
+        <div class="contact-box">
+            <h2 class="section-title" style="margin-bottom: 40px;">Rozpocznij <span>Projekt</span></h2>
+            <div class="contact-form">
+                <input type="text" placeholder="Twoje Imię / Nazwa Firmy" required>
+                <input type="email" placeholder="Twój Adres E-mail" required>
+                <textarea rows="5" placeholder="Opisz szczegóły, wymiary lub prześlij specyfikację projektu..." required></textarea>
+                <button class="btn" type="submit" style="cursor: pointer; border: none; width: 100%;">Wyślij Zapytanie Ofertowe</button>
+            </div>
         </div>
     </section>
 
