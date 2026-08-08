@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPK MASTER enterprise | Konstrukcje Stalowe</title>
+    <style>
+        :root {
+            --primary: #00e5ff; /* Cyan Gloss */
+            --accent: #4a90e2;  /* Royal Blue */
+            --bg-dark: #0f172a;  /* Deep Navy */
+            --bg-card: #1e293b;  /* Slate Blue */
+            --text-white: #ffffff;
+            --text-dim: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            line-height: 1.6;
+        }
+
+        /* Fixed Navigation */
+        header {
+            background: rgba(15, 23, 42, 0.85);
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        /* Hero with Auto-Playing Video */
+        .hero {
+            position: relative;
+            height: 95vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 8%;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -2;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            filter: brightness(0.4);
+        }
+
+        .hero h1 {
+            font-size: 54px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 750px;
+            color: #cbd5e1;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #0f172a;
+            padding: 15px 40px;
+            font-weight: 800;
+            text-decoration: none;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+            transition: 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.8);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            font-weight: 800;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        .section-title span {
+            color: var(--primary);
+        }
+
+        /* Premium Blue Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            padding: 35px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 229, 255, 0.15);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: var(--text-dim);
+            font-size: 15px;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            height: 260px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* Contact Form */
+        .contact {
+            background: var(--bg-card);
+            border-radius: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            background: var(--bg-dark);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #fff;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: var(--text-dim);
+            font-size: 14px;
+            background: #090d16;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">VPK MASTER <span>enterprise</span></div>
+    </header>
+
+    <!-- Auto-playing video, muted, no controls -->
+    <section class="hero">
+        <video class="hero-video" autoplay loop muted playsinline>
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-welder-working-with-sparks-43187-large.mp4" type="video/mp4">
+        </video>
+        <h1>Nowoczesne Konstrukcje Stalowe</h1>
+        <p>Innowacyjne rozwiązania w zakresie spawalnictwa i obróbki stali na terenie całej Polski.</p>
+        <a href="#contact" class="btn">Darmowa Wycena</a>
+    </section>
+
+    <section>
+        <h2 class="section-title">Nasze <span>Usługi</span></h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Precyzyjne Spawanie TIG / MIG</h3>
+                <p>Spawanie stali nierdzewnej, czarnej oraz aluminium z zachowaniem najwyższych norm estetyki i wytrzymałości.</p>
+            </div>
+            <div class="card">
+                <h3>Konstrukcje Budowlane</h3>
+                <p>Projektowanie i budowa hal, schodów, ogrodzeń oraz unikalnych elementów metalowych na wymiar.</p>
+            </div>
+            <div class="card">
+                <h3>Projektowanie 3D & Wycena</h3>
+                <p>Kompleksowe wsparcie od pomysłu po montaż. Bezpłatna analiza oraz wycena projektów przemysłowych.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Nasze <span>Realizacje</span></h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=600" alt="Work 1">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600" alt="Work 2">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=600" alt="Work 3">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact">
+            <h2 class="section-title">Napisz <span>do nas</span></h2>
+            <div class="contact-form">
+                <input type="text" placeholder="Imię i Nazwisko / Firma" required>
+                <input type="email" placeholder="Adres E-mail" required>
+                <textarea rows="4" placeholder="Opisz swój projekt..." required></textarea>
+                <button class="btn" type="submit" style="cursor: pointer; border: none; width: 100%;">Wyślij Zapytanie</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 VPK MASTER enterprise. Wszystkie prawa zastrzeżone.</p>
+    </footer>
+
+</body>
+</html>
